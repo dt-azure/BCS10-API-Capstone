@@ -1,0 +1,65 @@
+$font-color: red;
+$primary-color: #2a73dd;
+$secondary-color: #1d365e;
+
+@mixin styleSection() {
+    h2 {
+        color: $primary-color;
+    }
+
+    button {
+        color: pink;
+    }
+}
+
+@mixin navStyle($width) {
+    &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 100%;
+        transform: scaleX($width);
+        background: $secondary-color;
+        transition: all 0.3s;
+    }
+}
+
+h1 {
+    color: $font-color;
+}
+
+header {
+    .navbar-brand{
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: $primary-color;
+    }
+
+    #navbarSupportedContent {
+
+        .nav-item {
+            .nav-link {
+                color: $secondary-color;
+                padding: 25px;
+                @include navStyle(0);
+                transition: all 0.3s;
+            }
+
+            &.active .nav-link {
+                color: $primary-color;
+
+                @include navStyle(100%);
+            }
+
+            &:hover {
+                .nav-link {
+                    color: $primary-color;
+                }
+
+                .nav-link::after {
+                    transform: scaleX(100%);
+                }
+            }
+        }
+    }
+}
