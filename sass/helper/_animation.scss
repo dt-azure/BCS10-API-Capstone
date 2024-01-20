@@ -1,0 +1,13 @@
+@keyframes leftRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    } 
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(10px);
+        opacity: 0;
+    }
+}

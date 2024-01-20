@@ -1,0 +1,29 @@
+.btn {
+    padding: 20px 40px;
+    background: $color-red;
+    color: $color-white-1;
+    font-size: $fs-3;
+    font-weight: $fw-2;
+    border-radius: $bd-4;
+    border: 1px solid $color-red;
+    transition: all 0.5s;
+
+    i {
+        font-size: $fs-7;
+        margin-left: $mg-5;
+        transform: translateY(5%);
+        // transition: all 0.4s;
+        // animation: leftRight 2s linear infinite;
+    }
+
+    &:hover {
+        border: 1px solid $color-white-1;
+        background: $primary-color;
+        color: $color-white-1;
+
+        i {
+            // transform: translateX(10px);
+            animation: leftRight 1s linear infinite;
+        }
+    }
+}

@@ -1,0 +1,133 @@
+@keyframes leftRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Poppins", sans-serif;
+  color: #293341;
+  font-size: 14px;
+  font-weight: 400;
+  background: #FFFFFF;
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+.btn {
+  padding: 20px 40px;
+  background: #c91f28;
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 40px;
+  border: 1px solid #c91f28;
+  transition: all 0.5s;
+}
+.btn i {
+  font-size: 20px;
+  margin-left: 10px;
+  transform: translateY(5%);
+}
+.btn:hover {
+  border: 1px solid #FFFFFF;
+  background: #264e86;
+  color: #FFFFFF;
+}
+.btn:hover i {
+  animation: leftRight 1s linear infinite;
+}
+
+header {
+  padding: 25px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+header .main-logo {
+  transform: translateY(-5px);
+}
+header .main-logo img {
+  max-width: 500px;
+}
+header .navbar-nav {
+  font-size: 1.4rem;
+}
+header .navbar-nav li {
+  margin-right: 25px;
+}
+header .navbar-nav li a {
+  color: #293341;
+}
+header .navbar-nav .fa-circle {
+  font-size: 0.3rem;
+  color: #293341;
+  transform: translateY(-4px);
+}
+header .navbar-nav .cart {
+  position: relative;
+}
+header .navbar-nav .cart .cart-alert {
+  position: absolute;
+  top: 2px;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  background: #c91f28;
+  border-radius: 50%;
+}
+header .navbar-nav .cart .cart-alert p {
+  color: #FFFFFF;
+  font-size: 12px;
+  margin: 0;
+}
+
+.banner {
+  padding: 100px 0 50px;
+}
+.banner .banner-content {
+  background: url(../../img/banner1.jpg);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+  position: relative;
+}
+.banner .banner-content::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.17);
+}
+.banner .banner-content .banner-text {
+  padding-top: 60px;
+  transform: translateX(70%);
+  z-index: 100;
+}
+.banner .banner-content .banner-text p {
+  color: #FFFFFF;
+  font-size: 60px;
+}
+
+.products .product-filter .nav-link {
+  padding: 0 44px;
+}/*# sourceMappingURL=main.css.map */

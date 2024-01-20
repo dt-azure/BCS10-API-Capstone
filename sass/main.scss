@@ -2,22 +2,24 @@
 
 // Helper
 
-@import "helper/variables";
-// @import "./helper/variables";
+@import "./helper/variables";
 @import "./helper/mixin";
+@import "./helper/animation";
 
 // Base
 @import "./base/reset";
+@import "./base/responsive";
 
 // Components
 @import "./components/button";
 
 // Layouts
 @import "./layouts/header";
-@import "./layouts/carousel";
+@import "./layouts/banner";
 @import "./layouts/products";
-@import "./layouts/footer";
 
 // Pages
+@import "./pages/index";
+@import "./pages/admin";
 
 // Theme
