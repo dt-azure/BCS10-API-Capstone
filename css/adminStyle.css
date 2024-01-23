@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+}
+
+.phoneBanner{
+    background-color: rgba(29, 38, 113, 0.7);
+    border-radius: 10px 10px 0 0;
+    align-items: center;
+}
+
+#myTable th{
+    border-top: 0;
+    border-bottom: 1px black solid;
+}
+
+#HeaderTitle{
+    text-align: center;
+}
+
+.selectType{
+    padding-top: 10px;
+}
+#tablePhone .resize{
+    width:50px;
+    height:50px;
+}
