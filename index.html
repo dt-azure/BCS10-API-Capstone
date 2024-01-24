@@ -1,15 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>The Phone Store</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -17,94 +17,179 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="./css/main.css">
-
+    <link rel="stylesheet" href="./css/main.css" />
 </head>
 
 <body>
+    <!-- Loading -->
+    <div id="loading">
+        <img src="./img/loading.gif" class="img-fluid loading-icon" alt="" />
+    </div>
+
     <!-- HEADER -->
-    <header>
+    <header id="header">
         <div class="container">
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-sm">
                 <a href="#" class="main-logo">
-                    <img src="./img/main-logo.png" class="img-fluid" alt="">
+                    <img src="./img/main-logo.png" class="img-fluid" alt="" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto align-items-center">
+                <div class="collapse navbar-collapse ml-auto">
+                    <ul class="navbar-nav align-items-center ml-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li><i class="fa-solid fa-circle dot"></i></li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Admin</a>
+                            <a class="nav-link" href="./admin.html">Admin</a>
                         </li>
                         <li><i class="fa-solid fa-circle dot"></i></li>
                         <li class="nav-item">
-                            <a class="nav-link cart" href="#">
-                                <i class="fa-solid fa-cart-shopping mr-2"></i>
+                            <a id="cartBtn" class="nav-link cart" data-toggle="modal" data-target="#cartModal"
+                                onclick="printCartList()">
+                                <i class="fa-solid fa-cart-shopping mr-3"></i>
                                 <div class="cart-alert text-center d-flex align-items-center justify-content-center">
-                                    <p>12</p>
+                                    <p id="cartCounter">0</p>
                                 </div>
-                                Shopping Cart
+                                <span class="cart-text">Shopping Cart</span>
                             </a>
                         </li>
-
                     </ul>
                 </div>
+
             </nav>
         </div>
     </header>
 
     <!-- BANNER -->
     <section class="banner">
-        <div class="banner-content container-fluid d-flex justify-content-center">
-            <div class="banner-text">
-                <p>The Best Phones <br> In Town</p>
-                <button class="btn">
-                    Browse
-                    <i class="fa-solid fa-caret-right"></i>
-                </button>
-
+        <div class="banner-content container-fluid d-flex justify-content-center align-items-center">
+            <div class="frame d-flex">
+                <div class="banner-text ml-auto">
+                    <p>
+                        The Best Phones <br />
+                        In Town
+                    </p>
+                    <a href="#products">
+                        <button class="btn btn-banner">
+                            Browse
+                            <i class="fa-solid fa-caret-right"></i>
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- PRODUCT LIST -->
-    <section class="products">
+    <section id="products" class="products">
         <div class="container">
             <div class="product-filter">
                 <nav>
                     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                        <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home"
-                            type="button" role="tab" aria-controls="nav-home" aria-selected="true">All Products</button>
-                        <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#nav-profile"
-                            type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Apple</button>
-                        <button class="nav-link" id="nav-contact-tab" data-toggle="tab" data-target="#nav-contact"
-                            type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Samsung</button>
+                        <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#products-all"
+                            type="button" role="tab" aria-controls="products-all" aria-selected="true">
+                            All Products
+                        </button>
+                        <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#products-apple"
+                            type="button" role="tab" aria-controls="products-apple" aria-selected="false">
+                            Apple
+                        </button>
+                        <button class="nav-link" id="nav-contact-tab" data-toggle="tab" data-target="#products-samsung"
+                            type="button" role="tab" aria-controls="products-samsung" aria-selected="false">
+                            Samsung
+                        </button>
                     </div>
                 </nav>
             </div>
 
             <div class="product-listing">
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        ...</div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...
+                    <div class="tab-pane fade show active row" id="products-all" role="tabpanel"
+                        aria-labelledby="nav-home-tab">
+                        <div id="printAll" class="row"></div>
                     </div>
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...
+                    <div class="tab-pane fade row" id="products-apple" role="tabpanel"
+                        aria-labelledby="nav-profile-tab">
+                        <div id="printApple" class="row"></div>
                     </div>
+                    <div class="tab-pane fade row" id="products-samsung" role="tabpanel"
+                        aria-labelledby="nav-contact-tab">
+                        <div id="printSamsung" class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart -->
+    <section id="shoppingCart" class="shopping-cart">
+        <div class="cart-header d-flex align-items-center">
+            <div class="container d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-cart-shopping mr-3"></i>
+                <h4>Cart Content</h4>
+            </div>
+        </div>
+
+        <div class="cart-content">
+            <div class="container">
+                <div id="cartView" class="cart-display">
+                    <div class="cart-item d-flex">
+                        <div class="item-img">
+                            <img src="https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg" alt=""
+                                class="img-fluid" />
+                        </div>
+
+                        <div class="item-info d-flex flex-column justify-content-between">
+                            <span class="item-name">Samsung Galaxy S23 Ultra</span>
+                            <div class="item-quant d-flex justify-content-between">
+                                <div class="btn-decrease d-flex align-items-center justify-content-center">
+                                    <i class="fa-solid fa-minus"></i>
+                                </div>
+
+                                <span class="item-count">0</span>
+
+                                <div class="btn-increase d-flex align-items-center justify-content-center">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item-del align-self-center">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="total-cost d-flex justify-content-between">
+                <span>SUBTOTAL:</span>
+                <span id="totalCost">$1000</span>
+            </div>
+
+            <div class="checkout row">
+                <div class="reset-cart col-4">
+                    <a class="btn-reset d-flex align-items-center justify-content-center" href="#"
+                        onclick="resetCart()">Reset Cart</a>
+                </div>
+
+                <div class="checkout-cart col-8">
+                    <a class="btn-checkout d-flex align-items-center justify-content-center" href="#">
+                        <p>CHECKOUT</p>
+                        <i class="fa-solid fa-circle-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -114,20 +199,23 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
 
     <!-- Axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"
         integrity="sha512-TjBzDQIDnc6pWyeM1bhMnDxtWH0QpOXMcVooglXrali/Tj7W569/wd4E8EDjk1CwOAOPSJon1VfcEt1BI4xIrA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Product Description Toggle -->
+    <script src="./js/product-toggle.js"></script>
+
+    <!-- Controller -->
+    <script src="./js/controller.js"></script>
 
     <!-- Store JS -->
     <script src="./js/store.js"></script>

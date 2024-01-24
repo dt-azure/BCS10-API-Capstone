@@ -2,16 +2,33 @@ header {
     padding: $pd-1 0;
     position: fixed;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
+    height: 100px;
+    transition: all 0.5s ease-in-out;
+    
+    &.header-changed {
+        // padding: $pd-9 0;
+        background: $color-white-1;
+        box-shadow: $bs-3;
+    }
 
     .main-logo {
         transform: translateY(-5px);
+        margin-left: -$mg-4;
 
         img {
-            max-width: 500px;
+            max-width: 250px;
         }
     }
 
+    .navbar-toggler {
+        position: relative;
+        .navbar-toggler-icon {
+           background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+    }
+
+   
     .navbar-nav {
         font-size: $fs-3;
         
@@ -21,6 +38,30 @@ header {
 
             a {
                 color: $color-dark-1;
+                position: relative;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                
+
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 0;
+                    height: 2px;
+                    background: $primary-color;
+                    transition: all 0.3s;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+
+            #cartBtn::after {
+                display: none;
             }
         }
 
@@ -32,11 +73,12 @@ header {
 
         .cart {
             position: relative;
+            cursor: pointer;
 
             .cart-alert {
                 position: absolute;
                 top: 2px;
-                left: 20px;
+                left: 15px;
                 width: 20px;
                 height: 20px;
                 background: $color-red;
@@ -48,6 +90,11 @@ header {
                     margin: 0;
                 }
             }
+
+            .cart-text {
+                display: none;
+            }
         }
     }
+    
 }

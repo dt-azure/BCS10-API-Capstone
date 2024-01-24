@@ -17,13 +17,17 @@
             background: rgb(0 0 0 / 17%);
         }
 
+        .frame {
+            padding: 0 $pd-8;
+        }
+
         .banner-text {
             padding-top: 60px;
-            transform: translateX(70%);
             z-index: 100;
             p {
                 color: $color-white-1;
                 font-size: $fs-8;
+                font-weight: $fw-2;
             }
         }
     }
