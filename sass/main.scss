@@ -8,10 +8,14 @@
 
 // Base
 @import "./base/reset";
-@import "./base/responsive";
+
 
 // Components
 @import "./components/button";
+@import "./components/frame";
+@import "./components/product-card";
+@import "./components/cart";
+@import "./components/loading-screen";
 
 // Layouts
 @import "./layouts/header";
@@ -23,3 +27,5 @@
 @import "./pages/admin";
 
 // Theme
+
+@import "./base/responsive";

@@ -9,3 +9,12 @@ html, body {
     @include styleText($color-dark-1, $fs-1, $fw-1);
     background: $color-white-1;
 }
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container {
+    max-width: 550px;
+}
