@@ -37,7 +37,7 @@ let printProductList = (list) => {
     );
     row += currentRow;
 
-    if (i.type === "Apple") {
+    if (i.type === "iPhone") {
       rowApple += currentRow;
     } else if (i.type === "Samsung") {
       rowSamsung += currentRow;

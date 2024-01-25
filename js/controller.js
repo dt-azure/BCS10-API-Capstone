@@ -8,7 +8,7 @@ let renderProduct = (
   frontCam,
   img
 ) => `
-<div class="product-card col-4 text-center">
+<div class="product-card col-12 col-sm-6 col-lg-4 text-center">
 <div class="product-content">
   <div id="item-${id}" class="product-img mx-auto">
     <img
@@ -36,7 +36,7 @@ let renderProduct = (
       </div>
   </div>
 
-  <div class="product-footer d-flex">
+  <div class="product-footer d-flex justify-content-center">
       <button class="btn btn-learnMore" onclick="productDescToggle('item-${id}')">LEARN MORE</button>
       <button class="btn btn-buyNow" onclick="addToCart('${id}')">
           <i class="fa-solid fa-cart-shopping"></i>
@@ -111,3 +111,9 @@ let calcCartValue = () => {
     style: "decimal", minimumFractionDigits: 2,
   }).format(total)}`;
 }
+
+
+// Close cart window
+document.querySelector(".close-cart").addEventListener("click", () => {
+  document.getElementById("shoppingCart").classList.toggle("show");
+});

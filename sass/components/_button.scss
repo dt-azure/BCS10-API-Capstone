@@ -29,10 +29,10 @@
 }
 
 .btn-learnMore {
-    width: 100%;
+    width: 40%;
     margin-top: $mg-2;
     background: $color-green;
-    @include styleText($color-white-1, $fs-3, $fw-2);
+    @include styleText($color-white-1, $fs-12, $fw-2);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     transition: all 0.3s;
@@ -45,10 +45,10 @@
 }
 
 .btn-buyNow {
-    width: 100%;
+    width: 40%;
     margin-top: $mg-2;
     background: $color-red;
-    @include styleText($color-white-1, $fs-2, $fw-2);
+    @include styleText($color-white-1, $fs-12, $fw-2);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     transition: all 0.3s;
@@ -61,7 +61,7 @@
 }
 
 .btn-reset {
-    height: 35px;
+    height: 20px;
     background: $color-red;
     color: $color-white-1;
     font-weight: $fw-2;
@@ -76,12 +76,12 @@
 }
 
 .btn-checkout {
-    height: 35px;
+    height: 20px;
     width: 100%;
     background: $color-green;
     color: $color-white-1;
     font-weight: $fw-2;
-    font-size: $fs-5;
+    font-size: $fs-2;
     border-radius: $bd-3;
     transition: all 0.4s;
 

@@ -1,9 +1,9 @@
 header {
-    padding: $pd-1 0;
+    padding: 10px 0;
     position: fixed;
     width: 100%;
     z-index: 1000;
-    height: 100px;
+    height: 80px;
     transition: all 0.5s ease-in-out;
     
     &.header-changed {
@@ -13,11 +13,11 @@ header {
     }
 
     .main-logo {
-        transform: translateY(-5px);
-        margin-left: -$mg-4;
+        // transform: translateY(-5px);
+        margin-left: -$mg-1;
 
         img {
-            max-width: 250px;
+            max-width: 200px;
         }
     }
 
@@ -30,11 +30,11 @@ header {
 
    
     .navbar-nav {
-        font-size: $fs-3;
+        font-size: $fs-2;
         
 
         li {
-            margin-right: $mg-2;
+            margin-right: $mg-5;
 
             a {
                 color: $color-dark-1;

@@ -1,6 +1,8 @@
 .banner {
+    padding: 80px 0 50px;
+    
     .banner-content {
-        background: url(../../img/banner1.jpg);
+        background: url(../img/banner1.jpg);
         background-position: top;
         background-size: cover;
         background-repeat: no-repeat;
@@ -18,21 +20,22 @@
         }
 
         .frame {
-            padding: 0 $pd-8;
+            padding: 0 0 0 60%;
         }
 
         .banner-text {
-            padding-top: 60px;
+            padding-top: 40px;
             z-index: 100;
             p {
                 color: $color-white-1;
-                font-size: $fs-8;
+                font-size: $fs-11;
                 font-weight: $fw-2;
+            }
+
+            .btn-banner {
+                border-radius: 20px;
+                padding: 8px 15px;
             }
         }
     }
-
-
-    padding: 100px 0 50px;
-    
 }

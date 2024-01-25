@@ -69,7 +69,7 @@
 
         .product-text {
             margin-top: $mg-2;
-            @include styleText($primary-color, $fs-5, $fw-2);
+            @include styleText($primary-color, $fs-7, $fw-2);
 
             .product-name {
                 padding: 0;

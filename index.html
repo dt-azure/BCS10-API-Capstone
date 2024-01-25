@@ -35,7 +35,7 @@
     <!-- HEADER -->
     <header id="header">
         <div class="container">
-            <nav class="navbar navbar-expand-sm">
+            <nav class="navbar navbar-expand">
                 <a href="#" class="main-logo">
                     <img src="./img/main-logo.png" class="img-fluid" alt="" />
                 </a>
@@ -140,6 +140,9 @@
                 <h4>Cart Content</h4>
             </div>
         </div>
+        <div class="close-cart text-center">
+            <i class="fa-solid fa-circle-arrow-right"></i>
+        </div>
 
         <div class="cart-content">
             <div class="container">
@@ -181,12 +184,13 @@
 
             <div class="checkout row">
                 <div class="reset-cart col-4">
-                    <a class="btn-reset d-flex align-items-center justify-content-center" href="#"
-                        onclick="resetCart()">Reset Cart</a>
+                    <a class="btn-reset d-flex align-items-center justify-content-center"
+                        onclick="resetCart()">Clear Cart</a>
                 </div>
 
                 <div class="checkout-cart col-8">
-                    <a class="btn-checkout d-flex align-items-center justify-content-center" href="#">
+                    <!-- Reusing reset cart function because checkout button only required to remove all items for this project-->
+                    <a class="btn-checkout d-flex align-items-center justify-content-center" onclick="resetCart()">
                         <p>CHECKOUT</p>
                         <i class="fa-solid fa-circle-arrow-right"></i>
                     </a>
