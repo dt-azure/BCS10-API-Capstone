@@ -1,29 +1,9 @@
 
-var editId= null
+var editId= null;
+var productList=[];
 
-// function display list of product
-function renderListProduct(arr){
-    var contentHtml ="";
 
-    arr.forEach(item => {
-        var trString = `<tr>
-        <td>${item.id}</td>
-        <td>${item.name}</td>
-        <td>${item.price}</td>
-        <td><img src="${item.img}" class="resize"></td>
-        <td>${item.desc}</td>
-        <td>
-        <button class='btn btn-danger' onclick='deleteProduct(${item.id})'>X</button>
-        <button class='btn btn-warning' onclick='editProduct(${item.id})'>edit</button>
-        </td>
-        </tr>
-        `
-        contentHtml += trString;
-    });
-    document.getElementById("tablePhone").innerHTML = contentHtml;
-
-}
-
+// function show list of product
 function fetchListProduct(){
     axios({
         url:"https://65a5f64474cf4207b4ef0e03.mockapi.io/PhoneProducts",
@@ -31,38 +11,24 @@ function fetchListProduct(){
     })
         .then(function(res){
         // console.log("🚀 ~ .then ~ res:", res);
-        renderListProduct(res.data);
-
+        productList =res.data;
+        renderListProduct(productList);
         })
         .catch(function(err){
-
         });
 }
 fetchListProduct();
+
+
+// function add product
 function AddProduct(){
     // show the "Add Phone" button
     document.getElementById("btnAddPhone").style.display = "inline-block";
+    document.getElementById("btnUpdate").style.display = "none";
 }
 function AddPhone(){
-    var phoneName = document.getElementById("name").value;
-    var price = document.getElementById("price").value*1;
-    var screen = document.getElementById("screen").value;
-    var back = document.getElementById("bCam").value;
-    var front = document.getElementById("fCam").value;
-    var img = document.getElementById("img").value;
-    var desc = document.getElementById("decr").value;
-    var type = document.getElementById("brand").value;
-
-    var product= {
-        name:phoneName,
-        price: price,
-        screen: screen,
-        backCamera: back,
-        frontCamera: front,
-        img: img,
-        desc: desc,
-        type: type,
-    }
+    
+    var product = getInfoFromForm();
     axios({
         url:"https://65a5f64474cf4207b4ef0e03.mockapi.io/PhoneProducts",
         method:"POST",
@@ -77,6 +43,8 @@ function AddPhone(){
         });
 }
 
+
+// Remove/delete product
 function deleteProduct(id){
     axios({
         url:`https://65a5f64474cf4207b4ef0e03.mockapi.io/PhoneProducts/${id}`,
@@ -92,6 +60,7 @@ function deleteProduct(id){
 }
 
 
+// Get value and show on the form
 function editProduct(id){
     editId = id;
     axios({
@@ -112,6 +81,8 @@ function editProduct(id){
        // Hide the "Add Phone" button
        document.getElementById("btnAddPhone").style.display = "none";
 
+       document.getElementById("btnUpdate").style.display = "inline-block";
+
         $('#MyModal').modal('show'); 
         })
         .catch(function(err){
@@ -119,26 +90,10 @@ function editProduct(id){
         });
 }
 
+// Update new value from edit button
 function updatePhone(){
-    var phoneName = document.getElementById("name").value;
-    var price = document.getElementById("price").value*1;
-    var screen = document.getElementById("screen").value;
-    var back = document.getElementById("bCam").value;
-    var front = document.getElementById("fCam").value;
-    var img = document.getElementById("img").value;
-    var desc = document.getElementById("decr").value;
-    var type = document.getElementById("brand").value;
-
-    var product= {
-        name:phoneName,
-        price: price,
-        screen: screen,
-        backCamera: back,
-        frontCamera: front,
-        img: img,
-        desc: desc,
-        type: type,
-    }
+    
+    var product = getInfoFromForm();
     axios({
         url:`https://65a5f64474cf4207b4ef0e03.mockapi.io/PhoneProducts/${editId}`,
         method:"PUT",
@@ -153,3 +108,54 @@ function updatePhone(){
         });
 }
 
+
+function filterByBrand() {
+    var selectedBrand = document.getElementById("brandFiltered").value;
+    // console.log("🚀 ~ filterByBrand ~ selectedBrand:", selectedBrand)
+    
+    // Fetch products based on the selected brand
+    // use filter function to sort out and return a new array that is match with selected brand or a new array include all products
+    var filteredProducts = productList.filter(function(product) {
+       return selectedBrand === 'all' || product.type === selectedBrand;
+    });
+ 
+    // Render the filtered products
+    renderListProduct(filteredProducts);
+ }
+
+
+ function sortByPrice(order){
+    axios({
+        url:`https://65a5f64474cf4207b4ef0e03.mockapi.io/PhoneProducts`,
+        method:"GET",
+    })
+        .then(function(res){
+        var products =res.data;
+
+        /**use sort function to sort out an array 
+         * as an ascending or descending
+         */
+        products.sort(function(a,b){
+            // sort function will compare the difference between prices of elements to create new array and return it 
+            return order === 'asc' ? a.price-b.price : b.price-a.price;
+
+        })
+
+        renderListProduct(products);
+        })
+        .catch(function(err){
+            console.error("Error fetching products: ", err);
+        });
+ }
+
+ function searchProduct(){
+    var searchInput = document.getElementById("searchPhone").value;
+    // console.log("🚀 ~ searchProduct ~ searchInput:", searchInput)
+
+    var filterSearch = productList.filter(function(product){
+        return product.name.includes(searchInput);
+    })
+    // console.log("🚀 ~ filterSearch ~ filterSearch:", filterSearch);
+
+    renderListProduct(filterSearch);
+ }
