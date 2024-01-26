@@ -1,6 +1,6 @@
 function getInfoFromForm(){
     var phoneName = document.getElementById("name").value;
-    var price = document.getElementById("price").value*1;
+    var price = document.getElementById("price").value;
     var screen = document.getElementById("screen").value;
     var back = document.getElementById("bCam").value;
     var front = document.getElementById("fCam").value;
@@ -8,6 +8,7 @@ function getInfoFromForm(){
     var desc = document.getElementById("decr").value;
     var type = document.getElementById("brand").value;
 
+    
     var product= {
         name:phoneName,
         price: price,
@@ -18,8 +19,8 @@ function getInfoFromForm(){
         desc: desc,
         type: type,
     }
-
-    return product;
+    return product; 
+    
 }
 
 // function display list of product

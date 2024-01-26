@@ -29,6 +29,33 @@ function AddProduct(){
 function AddPhone(){
     
     var product = getInfoFromForm();
+    var isValid =true;
+
+    // kiem tra ten
+    isValid = kiemTraRong(product.name,"tbName") && kiemTraTen(product.name);
+    // kiem tra price
+    isValid = isValid &(kiemTraRong(product.price, "tbPrice") && kiemTraPrice(product.price));
+
+    // kiem tra screen
+    isValid = isValid & (kiemTraRong(product.screen,"tbScreen"));
+
+    // kiem tra front Camera
+    isValid = isValid & (kiemTraRong(product.frontCamera,"tbFront"));
+
+    // kiem tra back camera
+    isValid = isValid & (kiemTraRong(product.backCamera,"tbBack"));
+
+    // kiem tra img link
+    isValid = isValid & (kiemTraRong(product.img,"tbImg") && kiemTraImg(product.img));
+
+    // kiem tra Description
+    isValid = isValid & (kiemTraRong(product.desc,"tbDescr"));
+
+    // kiem tra branch
+    isValid = isValid & (kiemTraRong(product.type,"tbType")&& kiemTraBranch(product.type));
+    
+
+    if(isValid){
     axios({
         url:"https://65a5f64474cf4207b4ef0e03.mockapi.io/PhoneProducts",
         method:"POST",
@@ -41,6 +68,7 @@ function AddPhone(){
         .catch(function(err){
 
         });
+    }
 }
 
 
