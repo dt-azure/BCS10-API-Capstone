@@ -1,7 +1,39 @@
 .products {
+    padding: $pd-7 0;
     .product-filter {
-        .nav-link {
-            padding: 0 $pd-4;
+        .nav {
+            border: none;
         }
+
+        .nav-link {
+            padding: 0 $pd-9;
+            font-size: $fs-1;
+            color: $color-white-1;
+            background: $color-dark-2;
+            border: 1px solid $color-dark-2;
+            border-radius: $bd-3;
+            transition: all 0.4s;
+            margin: 0 $mg-5;
+
+            &.active {
+                background: $primary-color;
+                border: 1px solid $primary-color;
+                box-shadow: rgba(38, 78, 134, 0.16) 0px 3px 6px, rgba(38, 78, 134, 0.23) 0px 3px 6px;
+            }
+
+            &:hover {
+                box-shadow: rgba(123, 123, 123, 0.16) 0px 3px 6px, rgba(123, 123, 123, 0.23) 0px 3px 6px;
+                background: $color-green;
+                border: 1px solid $color-green;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .product-listing {
+        padding: $pd-4;
     }
 }

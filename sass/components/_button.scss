@@ -1,5 +1,5 @@
-.btn {
-    padding: 20px 40px;
+.btn-banner {
+    padding: 15px 50px;
     background: $color-red;
     color: $color-white-1;
     font-size: $fs-3;
@@ -25,5 +25,79 @@
             // transform: translateX(10px);
             animation: leftRight 1s linear infinite;
         }
+    }
+}
+
+.btn-learnMore {
+    width: 40%;
+    margin-top: $mg-2;
+    background: $color-green;
+    @include styleText($color-white-1, $fs-12, $fw-2);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: all 0.3s;
+
+    &:hover {
+        background: $color-gold;
+        color: $color-dark-2;
+    }
+
+}
+
+.btn-buyNow {
+    width: 40%;
+    margin-top: $mg-2;
+    background: $color-red;
+    @include styleText($color-white-1, $fs-12, $fw-2);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: all 0.3s;
+
+    &:hover {
+        background: $color-gold;
+        color: $color-dark-2;
+    }
+
+}
+
+.btn-reset {
+    height: 20px;
+    background: $color-red;
+    color: $color-white-1;
+    font-weight: $fw-2;
+    border-radius: $bd-3;
+    transition: all 0.4s;
+    
+    &:hover {
+        text-decoration: none;
+        color: $color-dark-1;
+        background: $color-red-2;
+    }
+}
+
+.btn-checkout {
+    height: 20px;
+    width: 100%;
+    background: $color-green;
+    color: $color-white-1;
+    font-weight: $fw-2;
+    font-size: $fs-2;
+    border-radius: $bd-3;
+    transition: all 0.4s;
+
+    i {
+        margin-left: $mg-5;
+        
+    }
+
+    p {
+        display: block;
+        margin: 0;
+    }
+
+    &:hover {
+        text-decoration: none;
+        background: $color-green-2;
+        color: $color-white-1;
     }
 }
